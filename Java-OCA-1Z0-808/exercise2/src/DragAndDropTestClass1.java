@@ -9,12 +9,16 @@ public class DragAndDropTestClass1 {
         char c = 'a'; String str = "123";
 
         i *= (int) k.shortValue(); // i = k * i = 81, k = 9
+        // translated to: i = i.intValue() * k.shortValue();
 
         str += b; // str = str + "false" = "123false"
+        // translated to: (new StringBuilder()).append(str).append(b).toString();
 
         b = !b; // b = true
+        // translated to: b = !b.booleanValue();
 
         c *= i; // c = 'a' * i = 97 * 81 = 'ằ' (7857)
+        // translated to: char c = (char)(c * i.intValue());
     }
 
 }
